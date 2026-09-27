@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>칼에 지다 — 썸네일</title>
+
+<!-- ===== SNS 공유 미리보기 (Open Graph) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="칼에 지다 (壬生義士伝)">
+<meta property="og:description" content="막말 신센구미, 남부번 탈번 무사의 이야기 — 배경 안내.">
+<meta property="og:image" content="https://gigabgim59-sketch.github.io/KARL/mibugishiden-thumb.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://gigabgim59-sketch.github.io/KARL/mibugishiden-thumb.html">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gigabgim59-sketch.github.io/KARL/mibugishiden-thumb.png">
+<!-- ========================================= -->
+
+<style>
+  :root{
+    --sumi:#22231f;
+    --sumi-soft:#54554f;
+    --sumi-faint:#93938b;
+    --blood-deep:#7d1c13;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#111;display:flex;justify-content:center;align-items:flex-start;
+    padding:24px;
+    font-family:"Nanum Myeongjo","Apple SD Gothic Neo","Songti SC",serif}
+
+  .thumb{
+    position:relative;width:1200px;height:630px;overflow:hidden;
+    background:
+      radial-gradient(72% 92% at 28% 24%, rgba(255,255,255,.5), transparent 62%),
+      linear-gradient(158deg, #f4efe6 0%, #eee7da 58%, #e6ddce 100%);
+  }
+  .grain{position:absolute;inset:0;opacity:.4;mix-blend-mode:multiply;
+    background-image:repeating-linear-gradient(96deg,
+      rgba(120,110,90,.022) 0 1px, transparent 1px 4px);}
+
+  /* 붓 얼룩(점)과 먹선을 전부 SVG로 — 번짐·불규칙 가장자리 진짜로 */
+  .art{position:absolute;inset:0;z-index:2}
+
+  .snow{position:absolute;inset:0;pointer-events:none;z-index:3}
+  .flake{position:absolute;border-radius:50%;background:#fff;opacity:.45}
+
+  .title-v{
+    position:absolute;top:100px;right:122px;z-index:6;
+    writing-mode:vertical-rl;text-orientation:upright;
+    font-size:86px;font-weight:700;color:var(--sumi);
+    letter-spacing:.16em;line-height:1;
+  }
+  .info{position:absolute;left:98px;bottom:92px;z-index:6}
+  .orig{font-family:"Iowan Old Style",serif;font-size:16px;
+    color:var(--sumi-soft);letter-spacing:.16em;margin-bottom:14px}
+  .lead{font-size:19px;color:var(--sumi);line-height:1.6;font-weight:500;max-width:32ch}
+  .lead b{color:var(--blood-deep);font-weight:700}
+  .byline{font-size:13px;color:var(--sumi-faint);letter-spacing:.05em;margin-top:16px}
+  .rule{position:absolute;left:76px;top:96px;bottom:92px;width:1px;z-index:6;
+    background:linear-gradient(180deg,transparent,rgba(34,35,31,.22) 14%,
+      rgba(34,35,31,.22) 86%,transparent)}
+</style>
+</head>
+<body>
+  <div class="thumb" id="thumb">
+    <div class="grain"></div>
+
+    <svg class="art" viewBox="0 0 1200 630" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <!-- 먹/주 번짐 필터: 종이에 스민 잉크의 불규칙 가장자리 -->
+        <filter id="ink" x="-40%" y="-40%" width="180%" height="180%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018 0.022"
+            numOctaves="4" seed="7" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="26"
+            xChannelSelector="R" yChannelSelector="G"/>
+          <feGaussianBlur stdDeviation="1.1"/>
+        </filter>
+        <filter id="inkSoft" x="-60%" y="-60%" width="220%" height="220%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.03"
+            numOctaves="3" seed="3" result="n"/>
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="18"/>
+          <feGaussianBlur stdDeviation="6"/>
+        </filter>
+        <radialGradient id="zhu" cx="42%" cy="40%" r="62%">
+          <stop offset="0%" stop-color="#b23522"/>
+          <stop offset="55%" stop-color="#9a2417"/>
+          <stop offset="100%" stop-color="#79190f"/>
+        </radialGradient>
+      </defs>
+
+      <!-- 번짐 후광 -->
+      <ellipse cx="606" cy="322" rx="120" ry="110"
+        fill="#9a2417" fill-opacity="0.07" filter="url(#inkSoft)"/>
+
+      <!-- 주점(朱點) 본체 — 붓으로 한 번 찍은 얼룩 -->
+      <ellipse cx="600" cy="318" rx="52" ry="48"
+        fill="url(#zhu)" filter="url(#ink)"/>
+      <!-- 흘러내린 한 방울 -->
+      <path d="M600 360 C 598 392, 603 414, 600 436"
+        stroke="#79190f" stroke-opacity="0.42" stroke-width="6"
+        fill="none" filter="url(#inkSoft)" stroke-linecap="round"/>
+    </svg>
+
+    <div class="snow" id="snow"></div>
+    <div class="rule"></div>
+    <div class="title-v">칼에지다</div>
+
+    <div class="info">
+      <div class="orig">壬 生 義 士 伝 · 浅田次郎</div>
+      <div class="lead">돈에 매달린 겁쟁이라 불렸으나,<br>그 모두가 <b>가족을 위한 것이었다</b></div>
+      <div class="byline">막말 신센구미 · 남부번 탈번 무사 요시무라 간이치로</div>
+    </div>
+  </div>
+
+<script>
+  var snow=document.getElementById('snow');
+  for(var i=0;i<16;i++){
+    var f=document.createElement('span');
+    f.className='flake';
+    var s=2+Math.random()*2.5;
+    f.style.width=s+'px';f.style.height=s+'px';
+    f.style.left=(Math.random()*100)+'%';
+    f.style.top=(Math.random()*100)+'%';
+    f.style.opacity=(0.22+Math.random()*0.4);
+    snow.appendChild(f);
+  }
+</script>
+</body>
+</html>
